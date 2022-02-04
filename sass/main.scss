@@ -1,0 +1,95 @@
+@font-face {
+    font-family: 'robotoblack';
+    src: url('Roboto-Black-webfont.eot');
+    src: url('Roboto-Black-webfont.eot?#iefix') format('embedded-opentype'),
+         url('Roboto-Black-webfont.woff2') format('woff2'),
+         url('Roboto-Black-webfont.woff') format('woff'),
+         url('Roboto-Black-webfont.ttf') format('truetype'),
+         url('Roboto-Black-webfont.svg#robotoblack') format('svg');
+    font-weight: normal;
+    font-style: normal;  
+}
+
+// VARIABLES
+
+$color-primary: #9356DC;
+$color-secondary: #FF79DA;
+$color-tertiary: #99E2D0;
+
+
+$bcs: ( 
+    lightgrey: #F6F6F6, 
+    greyy: #EAEAEA
+);
+
+$paddings: (pad10: 10px, pad20: 20px, pad30: 30px);
+$marg: (mar10: 10px, mar20: 20px, mar30: 30px);
+
+// MIXINS ET EXTENTIONS
+
+%flex {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+}
+
+%titles {
+    margin: 0px;
+    text-align: center;
+}
+
+@mixin border_radius {
+    
+}
+
+* {
+    box-sizing: border-box;
+
+}
+
+body{
+    font-family: 'robotoblack';
+    margin: auto;
+    h2, p{
+        @extend %titles;
+    }
+    a:hover, button:hover{
+        cursor: pointer;
+    }
+}
+
+header{
+    @extend %flex;
+    align-items: center;
+    box-shadow: 0px 10px 5px -5px rgba(64, 88, 104, 0.8);
+    .logo{
+        padding: 20px 0;
+        img{
+            height: 30px;
+        }
+    }
+}
+
+.top{
+    @extend %flex;
+    align-items: center;
+    .location{
+        @extend %flex;
+        padding: 20px;
+        width: 100%;
+        justify-content: center;
+        flex-direction: row;
+        background-color: map-get($map: $bcs, $key: greyy);
+    }
+
+    .reserve{
+        @extend %flex;
+    }  
+}
+
+.fonction{
+    margin-top: 20px;
+}
+
+

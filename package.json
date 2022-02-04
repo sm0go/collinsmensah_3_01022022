@@ -1,0 +1,19 @@
+{
+  "name": "ohmyfood_sass",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "sass": "sass --watch ./sass/main.scss:./sass/css/style.css --style expanded"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sm0go/collinsmensah_3_01022022.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sm0go/collinsmensah_3_01022022/issues"
+  },
+  "homepage": "https://github.com/sm0go/collinsmensah_3_01022022#readme"
+}
