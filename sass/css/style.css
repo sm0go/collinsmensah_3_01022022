@@ -1,18 +1,10 @@
-@font-face {
-  font-family: "robotoblack";
-  src: url("Roboto-Black-webfont.eot");
-  src: url("Roboto-Black-webfont.eot?#iefix") format("embedded-opentype"), url("Roboto-Black-webfont.woff2") format("woff2"), url("Roboto-Black-webfont.woff") format("woff"), url("Roboto-Black-webfont.ttf") format("truetype"), url("Roboto-Black-webfont.svg#robotoblack") format("svg");
-  font-weight: normal;
-  font-style: normal;
-}
-.top .reserve, .top .location, .top, header {
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+footer .footer__link, .resto__desc, .fonction .button, .fonction, .top .reserve button, .top .reserve, .top .location, header {
   display: flex;
   flex-direction: column;
-  gap: 20px;
-  justify-content: center;
 }
 
-body h2, body p {
+body h2, body h3, body p {
   margin: 0px;
   text-align: center;
 }
@@ -24,6 +16,10 @@ body h2, body p {
 body {
   font-family: "robotoblack";
   margin: auto;
+}
+body a {
+  color: inherit;
+  text-decoration: none;
 }
 body a:hover, body button:hover {
   cursor: pointer;
@@ -40,18 +36,152 @@ header .logo img {
   height: 30px;
 }
 
-.top {
-  align-items: center;
-}
 .top .location {
   padding: 20px;
   width: 100%;
+  gap: 20px;
   justify-content: center;
   flex-direction: row;
   background-color: #EAEAEA;
 }
+.top .reserve {
+  background-color: #F6F6F6;
+  gap: 20px;
+  align-items: center;
+  padding: 20px;
+}
+.top .reserve button {
+  background: linear-gradient(#FF79DA, #9356DC);
+  border-radius: 25px;
+  color: white;
+  font-weight: bold;
+  box-shadow: 0px 10px 20px -10px rgba(64, 88, 104, 0.8);
+  border: none;
+  padding: 20px;
+}
+
 .fonction {
+  width: 90%;
+  margin: auto;
+  gap: 20px;
+  padding: 20px 0;
   margin-top: 20px;
+}
+.fonction .button {
+  border: none;
+  padding: 25px 0px;
+  width: 95%;
+  margin: auto;
+  border-radius: 20px;
+  box-shadow: 0px 10px 30px -20px rgba(64, 88, 104, 0.8);
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+}
+.fonction .button .fas {
+  font-size: 20px;
+  color: #7E7E7E;
+}
+.fonction .button__number {
+  position: relative;
+  right: 12px;
+  background-color: #9356DC;
+  padding: 4px 8px;
+  border-radius: 25px;
+  color: #FFF;
+}
+.fonction .button:hover {
+  background-color: #F5EDFF;
+}
+.fonction .button:hover .fas {
+  color: #9356DC;
+}
+
+#resto {
+  background-color: #F6F6F6;
+  padding: 20px 0 50px 0;
+}
+
+.resto {
+  width: 90%;
+  margin: auto;
+}
+.resto__card {
+  background-color: white;
+  border-radius: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0px 10px 30px -20px rgba(64, 88, 104, 0.8);
+}
+.resto__card img {
+  object-fit: cover;
+  border-radius: 20px 20px 0 0;
+  height: 200px;
+  width: 100%;
+}
+.resto__desc {
+  flex-direction: row;
+  align-items: center;
+  border-radius: 20px;
+  text-align: left;
+}
+.resto__name {
+  margin: 5px;
+}
+.resto__name h3, .resto__name p {
+  text-align: left;
+  padding: 2px 6px;
+}
+.resto__heart {
+  margin-left: auto;
+  padding: 20px;
+}
+.resto input[type=checkbox] {
+  appearance: none;
+}
+.resto input[type=checkbox]:checked + label .active {
+  background: linear-gradient(#9356DC, #FF79DA);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline;
+  position: relative;
+  left: 25px;
+}
+.resto label {
+  color: #EAEAEA;
+  cursor: pointer;
+  transition: color 0.2s ease-in-out;
+  font-size: 20px;
+}
+.resto label .active {
+  display: none;
+}
+.resto label:hover {
+  color: grey;
+}
+
+footer {
+  padding: 20px;
+  background-color: #353535;
+}
+footer .footer__link {
+  flex-direction: row;
+  margin-top: 10px;
+}
+footer .footer__link .fa-handshake {
+  transform: rotate(320deg);
+}
+footer p {
+  filter: invert(100%);
+}
+footer img {
+  margin: 12px 0;
+  height: 20px;
+  filter: invert(100%);
+}
+footer i {
+  filter: invert(100%);
+  width: 20px;
+  padding-right: 25px;
 }
 
 /*# sourceMappingURL=style.css.map */
