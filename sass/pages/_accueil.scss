@@ -1,0 +1,86 @@
+@use '../utils/variables';
+@use '../utils/mixin';
+
+.top{
+    .location{
+        @include mixin.flex;
+        padding: 20px;
+        width: 100%;
+        gap: 20px;
+        justify-content: center;
+        flex-direction: row;
+        background-color: variables.$grey;
+    }
+
+    .reserve{
+        @include mixin.flex;
+        background-color: variables.$lightgrey;
+        gap: 20px;
+        align-items: center;
+        padding: 20px;
+    }  
+}
+
+.fonction{
+    @include mixin.flex;
+    @include mixin.margin();
+    @include mixin.padding-main;
+    gap: 20px;
+
+    .button{
+        @include mixin.flex;
+        @include mixin.button-fonction;
+        .fas{
+            font-size: 20px;
+            color: #7E7E7E;
+        }
+        
+        &__number{
+            @include mixin.button-number;
+        }
+
+        &:hover{
+            background-color: #F5EDFF;
+            
+            .fas{
+                color: variables.$color-primary;
+   
+            }
+        }
+    }
+}
+
+#resto{
+    background-color: variables.$lightgrey;
+    @include mixin.padding-main;
+}
+
+.resto{
+
+    @include mixin.margin;
+    a:hover{
+        transform: scale(1.02);
+        transition: transform 0.3s;
+    } 
+
+    &__card{
+        @include mixin.cards-shape;
+        @include mixin.box-shadow();
+        img{
+            object-fit: cover;
+            border-radius: 20px 20px 0 0;
+            height: 200px;
+            width: 100%;
+        }
+    }
+
+    @include mixin.card-description;
+
+    &__name{
+        h3, p{
+            text-align: left;
+            padding: 2px 6px;
+        }
+        margin: 5px;
+    }
+}

@@ -1,0 +1,32 @@
+@use '../utils/mixin';
+@use '../utils/variables';
+
+footer{
+    padding: 20px;
+    background-color: variables.$color-footer;
+
+    .footer__link{
+        @include mixin.flex;
+        flex-direction: row;
+        margin-top: 10px;
+        .fa-handshake{
+            transform: rotate(320deg);
+        }
+    }
+    
+    p{
+        filter: invert(100%); 
+    }
+
+    img{
+        margin: 12px 0;
+        height: 20px;
+        filter: invert(100%);
+    }
+
+    i{
+        filter: invert(100%);
+        width: 20px;
+        padding-right: 25px;
+    }
+}

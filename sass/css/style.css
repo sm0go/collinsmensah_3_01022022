@@ -1,14 +1,61 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
-footer .footer__link, .resto__desc, .fonction .button, .fonction, .top .reserve button, .top .reserve, .top .location, header {
-  display: flex;
-  flex-direction: column;
+@keyframes checker {
+  0% {
+    transform: rotate(-180deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
 }
-
-body h2, body h3, body p {
-  margin: 0px;
-  text-align: center;
+@keyframes fadeInBox {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(none);
+  }
 }
-
+@keyframes fadeInPlats {
+  0% {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+    transform: translate(none);
+  }
+}
+@keyframes fadeInLines {
+  0% {
+    width: 0px;
+  }
+  100% {
+    width: 50px;
+  }
+}
+@keyframes top {
+  0% {
+    top: 0;
+    opacity: 0;
+  }
+  100% {
+    top: -40px;
+    opacity: 1;
+  }
+}
+@keyframes hover {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.02);
+  }
+}
 * {
   box-sizing: border-box;
 }
@@ -16,6 +63,10 @@ body h2, body h3, body p {
 body {
   font-family: "robotoblack";
   margin: auto;
+}
+body h2, body h3, body p {
+  margin: 0px;
+  text-align: center;
 }
 body a {
   color: inherit;
@@ -25,7 +76,14 @@ body a:hover, body button:hover {
   cursor: pointer;
 }
 
+main a:hover, main button:hover, .top a:hover, .top button:hover {
+  transform: scale(1.02);
+  transition: transform 0.3s;
+}
+
 header {
+  display: flex;
+  flex-direction: column;
   align-items: center;
   box-shadow: 0px 10px 5px -5px rgba(64, 88, 104, 0.8);
 }
@@ -37,6 +95,8 @@ header .logo img {
 }
 
 .top .location {
+  display: flex;
+  flex-direction: column;
   padding: 20px;
   width: 100%;
   gap: 20px;
@@ -45,35 +105,31 @@ header .logo img {
   background-color: #EAEAEA;
 }
 .top .reserve {
+  display: flex;
+  flex-direction: column;
   background-color: #F6F6F6;
   gap: 20px;
   align-items: center;
   padding: 20px;
 }
-.top .reserve button {
-  background: linear-gradient(#FF79DA, #9356DC);
-  border-radius: 25px;
-  color: white;
-  font-weight: bold;
-  box-shadow: 0px 10px 20px -10px rgba(64, 88, 104, 0.8);
-  border: none;
-  padding: 20px;
-}
 
 .fonction {
+  display: flex;
+  flex-direction: column;
   width: 90%;
   margin: auto;
+  padding: 20px 0 30px 0;
   gap: 20px;
-  padding: 20px 0;
-  margin-top: 20px;
 }
 .fonction .button {
+  display: flex;
+  flex-direction: column;
   border: none;
   padding: 25px 0px;
   width: 95%;
   margin: auto;
   border-radius: 20px;
-  box-shadow: 0px 10px 30px -20px rgba(64, 88, 104, 0.8);
+  box-shadow: 0px 3px 10px -5px rgba(64, 88, 104, 0.8);
   flex-direction: row;
   align-items: center;
   gap: 20px;
@@ -99,18 +155,22 @@ header .logo img {
 
 #resto {
   background-color: #F6F6F6;
-  padding: 20px 0 50px 0;
+  padding: 20px 0 30px 0;
 }
 
 .resto {
   width: 90%;
   margin: auto;
 }
+.resto a:hover {
+  transform: scale(1.02);
+  transition: transform 0.3s;
+}
 .resto__card {
   background-color: white;
   border-radius: 20px;
   margin-bottom: 20px;
-  box-shadow: 0px 10px 30px -20px rgba(64, 88, 104, 0.8);
+  box-shadow: 0px 3px 10px -5px rgba(64, 88, 104, 0.8);
 }
 .resto__card img {
   object-fit: cover;
@@ -119,10 +179,12 @@ header .logo img {
   width: 100%;
 }
 .resto__desc {
+  display: flex;
+  flex-direction: column;
   flex-direction: row;
   align-items: center;
   border-radius: 20px;
-  text-align: left;
+  justify-content: space-between;
 }
 .resto__name {
   margin: 5px;
@@ -131,32 +193,226 @@ header .logo img {
   text-align: left;
   padding: 2px 6px;
 }
-.resto__heart {
-  margin-left: auto;
+
+header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-direction: row;
+}
+header i {
+  margin-right: 50%;
+  font-size: 20px;
+  position: absolute;
+  top: 25px;
+  left: 35px;
+}
+
+.restoDisplay {
+  object-fit: cover;
+  width: 100%;
+  height: 300px;
+  opacity: 0;
+  animation-name: fadeInPlats;
+  animation-duration: 1.5s;
+  animation-timing-function: ease;
+  animation-delay: 0.7s;
+  animation-fill-mode: forwards;
+}
+
+main {
+  background: linear-gradient(white 50%, #EAEAEA 50%);
+}
+main .menu {
+  border-radius: 30px 30px 0 0;
+  position: relative;
+  top: 0px;
+  animation-name: top;
+  animation-duration: 1s;
+  animation-timing-function: ease;
+  animation-delay: none;
+  animation-fill-mode: forwards;
+  background-color: #EAEAEA;
+}
+main .menu__title {
+  display: flex;
+  flex-direction: column;
+  flex-direction: row;
+  align-items: center;
+  padding: 20px;
+  opacity: 0;
+  animation-name: fadeInPlats;
+  animation-duration: 0.5s;
+  animation-timing-function: ease-in-out;
+  animation-delay: 0.5s;
+  animation-fill-mode: forwards;
+}
+main .commander {
+  display: flex;
+  flex-direction: column;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 40px;
+}
+main .commander button {
+  width: 150px;
+  text-align: center;
+}
+main .plats {
+  display: flex;
+  flex-direction: column;
+  border-radius: 20px;
+  gap: 20px;
   padding: 20px;
 }
-.resto input[type=checkbox] {
+main .plats h2 {
+  text-align: left;
+  font-size: 18px;
+  font-weight: normal;
+  opacity: 0;
+  animation-name: fadeInPlats;
+  animation-duration: 0.5s;
+  animation-timing-function: ease-in-out;
+  animation-delay: 0.7s;
+  animation-fill-mode: forwards;
+}
+main .plats h2::after {
+  content: "";
+  width: 0px;
+  animation-name: fadeInLines;
+  animation-duration: 2s;
+  animation-timing-function: ease-in-out;
+  animation-delay: 1.5s;
+  animation-fill-mode: forwards;
+  display: block;
+  background-color: #99E2D0;
+  margin-top: 5px;
+  height: 4px;
+}
+main .plats article {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+main .plats .plats-card {
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0px 3px 10px -5px rgba(64, 88, 104, 0.8);
+  border-radius: 10px;
+  flex-direction: row;
+  background-color: white;
+  overflow: hidden;
+  opacity: 0;
+  animation-name: fadeInBox;
+  animation-duration: 1.3s;
+  animation-timing-function: ease-in-out;
+  animation-delay: 1s;
+  animation-fill-mode: forwards;
+}
+main .plats .plats-card.deux {
+  animation-name: fadeInBox;
+  animation-duration: 1.3s;
+  animation-timing-function: ease-in-out;
+  animation-delay: 1.3s;
+  animation-fill-mode: forwards;
+}
+main .plats .plats-card.trois {
+  animation-name: fadeInBox;
+  animation-duration: 1.3s;
+  animation-timing-function: ease-in-out;
+  animation-delay: 1.6s;
+  animation-fill-mode: forwards;
+}
+main .plats .plats-card__desc {
+  display: flex;
+  flex-direction: column;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding: 15px 25px 15px 15px;
+  width: 100%;
+}
+main .plats .plats-card__desc h3, main .plats .plats-card__desc p {
+  text-align: left;
+}
+main .plats .plats-card__name {
+  margin-right: auto;
+  width: 100%;
+}
+main .plats .plats-card__check {
+  display: flex;
+  color: white;
+  font-size: 25px;
+  margin-right: -150px;
+  width: 80px;
+  justify-content: center;
+  align-items: center;
+  background-color: #99E2D0;
+  transition: margin-right 0.5s ease-out;
+}
+main .plats .plats-card:hover .plats-card__check {
+  margin-right: 0px;
+}
+main .plats .plats-card:hover .plats-card__check i {
+  animation-name: checker;
+  animation-duration: 0.8s;
+  animation-timing-function: ease-in-out;
+  animation-delay: none;
+  animation-fill-mode: forwards;
+}
+
+.button-gradient {
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(#FF79DA, #9356DC);
+  border-radius: 25px;
+  color: white;
+  font-weight: bold;
+  box-shadow: 0px 10px 20px -10px rgba(64, 88, 104, 0.8);
+  border: none;
+  padding: 20px;
+}
+
+.checker {
+  margin-left: auto;
+  padding-right: 5px;
+}
+
+input[type=checkbox] {
   appearance: none;
 }
-.resto input[type=checkbox]:checked + label .active {
+input[type=checkbox]:checked + label .fa-check-circle {
+  color: white;
+  display: inline;
+}
+input[type=checkbox]:checked + label .active {
   background: linear-gradient(#9356DC, #FF79DA);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   display: inline;
-  position: relative;
-  left: 25px;
+  transition: all 1s;
 }
-.resto label {
-  color: #EAEAEA;
-  cursor: pointer;
-  transition: color 0.2s ease-in-out;
-  font-size: 20px;
-}
-.resto label .active {
+input[type=checkbox]:checked + label .none {
   display: none;
 }
-.resto label:hover {
-  color: grey;
+
+label {
+  color: black;
+  cursor: pointer;
+  transition: color 0.2s ease-in-out;
+  font-size: 25px;
+}
+label .fa-check-circle {
+  color: white;
+}
+label .activer {
+  display: none;
+}
+label .active {
+  display: none;
+}
+label:hover {
+  color: #9356DC;
 }
 
 footer {
@@ -164,6 +420,8 @@ footer {
   background-color: #353535;
 }
 footer .footer__link {
+  display: flex;
+  flex-direction: column;
   flex-direction: row;
   margin-top: 10px;
 }

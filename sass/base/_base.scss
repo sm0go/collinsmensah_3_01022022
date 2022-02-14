@@ -1,0 +1,34 @@
+@use '../utils/mixin';
+
+* {
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'robotoblack';
+    margin: auto;
+    h2, h3, p{
+        margin: 0px;
+        text-align: center;
+    }
+
+    a{
+        color: inherit;
+        text-decoration: none;
+    }
+
+    a:hover, button:hover{
+        cursor: pointer;
+    } 
+}
+
+main, .top{
+    a:hover, button:hover{
+        transform: scale(1.02);
+        transition: transform 0.3s ;
+    } 
+}
+
+.resto__card{
+    
+}

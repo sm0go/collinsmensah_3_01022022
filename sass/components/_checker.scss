@@ -1,0 +1,55 @@
+@use '../utils/variables';
+
+.checker{
+    margin-left: auto;
+    padding-right: 5px;
+}
+
+
+input[type="checkbox"] {
+    appearance: none;
+
+    &:checked + label{
+        
+        .fa-check-circle{
+            color: white;
+            display: inline;
+        }
+        
+        .active{
+            background: linear-gradient(variables.$color-primary, variables.$color-secondary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline;
+            transition: all 1s; 
+        }
+
+        .none{
+            display: none;
+        }
+        
+    }
+}
+  
+label {
+    color: black;
+    cursor: pointer; 
+    transition: color 0.2s ease-in-out;
+    font-size: 25px;
+    .fa-check-circle{
+        color: white;
+    }
+
+    .activer{
+        display: none;
+    }
+
+    .active{
+        display: none;
+    }
+
+    &:hover {
+        color: variables.$color-primary;
+    }
+}
+

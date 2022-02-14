@@ -1,0 +1,13 @@
+@use '../utils/mixin';
+
+header{
+    @include mixin.flex;
+    align-items: center;
+    box-shadow: 0px 10px 5px -5px rgba(64, 88, 104, 0.8);
+    .logo{
+        padding: 20px 0;
+        img{
+            height: 30px;
+        }
+    }
+}

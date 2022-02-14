@@ -1,0 +1,128 @@
+@use '../utils/mixin';
+@use '../utils/variables';
+
+
+header{
+    @include mixin.flex;
+    justify-content: center;
+    flex-direction: row;
+    i{
+        margin-right: 50%;
+        font-size: 20px;
+        position: absolute;
+        top: 25px;
+        left: 35px;
+    }
+}
+
+.restoDisplay{  
+    @include mixin.restoImg;
+}
+
+main{
+    background: linear-gradient(white 50%, variables.$grey 50%);
+    @include mixin.menuTitle;
+
+    .commander{
+        @include mixin.flex;
+        flex-direction: row;
+        justify-content: center;
+        margin-top: 40px;
+        button{
+            width: 150px;
+            text-align: center;
+        }
+    }
+
+
+    .plats{
+        @include mixin.flex;
+        @include mixin.border-radius(20px);
+        @include mixin.gap(20px,20px);
+        h2{
+            text-align: left;
+            font-size: 18px;
+            font-weight: normal;
+            opacity: 0;
+            @include mixin.animation(fadeInPlats, 0.5s, ease-in-out, 0.7s, forwards);
+            &::after{
+                content: '';
+                width: 0px;
+                @include mixin.animation(fadeInLines, 2s, ease-in-out, 1.5s, forwards);
+                display: block;
+                background-color: variables.$color-tertiary;
+                margin-top: 5px;
+                height: 4px;
+                
+            }
+        }
+
+        article{
+            @include mixin.flex;
+            gap: 15px;
+        }
+
+        .plats-card{
+            @include mixin.flex;
+            @include mixin.box-shadow;
+            @include mixin.border-radius;
+            flex-direction: row;
+            background-color: white;
+            overflow: hidden;
+            opacity: 0;
+            @include mixin.animation(fadeInBox, 1.3s, ease-in-out, 1s, forwards);
+
+            &.deux {
+                @include mixin.animation(fadeInBox, 1.3s, ease-in-out, 1.3s, forwards);
+            }
+
+            &.trois {
+                @include mixin.animation(fadeInBox, 1.3s, ease-in-out, 1.6s, forwards);
+            }
+
+            &__desc{
+                @include mixin.flex;
+                flex-direction: row;
+                align-items: flex-end;
+                justify-content: space-between;
+                padding: 15px 25px 15px 15px;
+                width: 100%;
+                h3,p{
+                    text-align: left;
+                    
+                }
+            }
+
+            &__name{
+                margin-right: auto;
+                width: 100%;
+            }
+
+            &__check{
+                display: flex;
+                color: white;
+                font-size: 25px;
+                margin-right: -150px;
+                width: 80px;
+                justify-content: center;
+                align-items: center;
+                background-color: variables.$color-tertiary;
+                transition: margin-right 0.5s ease-out;
+               
+            }
+
+            
+            &:hover{
+                .plats-card__check{
+                    margin-right: 0px;
+                    i {
+                        @include mixin.animation(checker, 0.8s, ease-in-out, none, forwards);  
+                    }
+
+                }
+            }    
+        }
+        
+    }
+}
+

@@ -1,0 +1,102 @@
+@use '../utils/variables';
+
+@mixin flex {
+    display: flex;
+    flex-direction: column;
+}
+
+@mixin animation($name, $duration, $timing, $delay, $fill) {
+    animation-name: $name;
+    animation-duration: $duration;
+    animation-timing-function: $timing;
+    animation-delay: $delay;
+    animation-fill-mode: $fill;
+}
+
+@mixin gap($gap: 20px, $pad: 20px) {
+    gap: $gap;
+    padding: $pad;
+}
+
+@mixin border-radius($br: 10px) {
+    border-radius: $br;
+}
+
+@mixin button-fonction {
+    border: none;
+    padding: 25px 0px;
+    width: 95%;
+    margin: auto;
+    border-radius: 20px;
+    @include box-shadow();
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+}
+
+@mixin button-number {
+    position: relative;
+    right: 12px;
+    background-color: variables.$color-primary;
+    padding: 4px 8px ;
+    border-radius: 25px;
+    color: #FFF; 
+}
+
+@mixin margin {
+    width: 90%;
+    margin: auto;
+}
+
+@mixin padding-main{   
+    padding: 20px 0 30px 0;
+}
+
+@mixin box-shadow($offsetX: 0px, $offsetY: 3px, $blur: 10px, $spread: -5px) {
+    box-shadow: $offsetX $offsetY $blur $spread rgba(64, 88, 104, 0.8);
+}
+
+@mixin card-description {
+    &__desc{
+        @include flex;
+        flex-direction: row;  
+        align-items: center;      
+        border-radius: 20px;
+        justify-content: space-between;
+    }
+}
+
+@mixin cards-shape {
+    background-color: white;
+    border-radius: 20px;
+    margin-bottom: 20px;
+}
+
+@mixin restoImg {
+    object-fit: cover;
+    width: 100%;
+    height: 300px;
+    opacity: 0;
+    @include animation(fadeInPlats, 1.5s, ease, 0.7s, forwards);
+}
+
+@mixin menuTitle {
+    .menu{
+        border-radius: 30px 30px 0 0 ;
+        position: relative;
+        top: 0px;
+        @include animation(top, 1s, ease, none, forwards);
+        background-color: variables.$grey;
+        &__title{
+            @include flex;
+            flex-direction: row;
+            align-items: center;
+            padding: 20px;
+            opacity: 0;
+            @include animation(fadeInPlats, 0.5s, ease-in-out, 0.5s, forwards);
+        }
+    }
+}
+
+
+

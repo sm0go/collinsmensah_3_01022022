@@ -1,273 +1,33 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
 // VARIABLES
 
-$color-primary: #9356DC;
-$color-secondary: #FF79DA;
-$color-tertiary: #99E2D0;
-$color-footer: #353535;
-$lightgrey: #F6F6F6; 
-$grey: #EAEAEA;
+@use "./utils/variables";
 
 
-$bcs: ( 
-    lightgrey: #F6F6F6, 
-    grey: #EAEAEA
-);
+// UTILS
 
-$paddings: (pad10: 10px, pad20: 20px, pad30: 30px);
-$marg: (mar10: 10px, mar20: 20px, mar30: 30px);
+@use "./utils/mixin";
+@use "./utils/animations";
 
-// MIXINS ET EXTENTIONS
+// BASE
 
-@mixin button-config {
-    background: linear-gradient($color-secondary, $color-primary);
-    border-radius: 25px;
-    color: white;
-    font-weight: bold;
-    box-shadow: 0px 10px 20px -10px rgba(64, 88, 104, 0.8);
-}
+@use "./base/base";
 
-@mixin button-config2 {
-    border: none;
-    padding: 25px 0px;
-    width: 95%;
-    margin: auto;
-    border-radius: 20px;
-    box-shadow: 0px 10px 30px -20px rgba(64, 88, 104, 0.8);
-}
+// HEADER
 
-@mixin button-number {
-    position: relative;
-    right: 12px;
-    background-color: $color-primary;
-    padding: 4px 8px ;
-    border-radius: 25px;
-    color: #FFF; 
-}
+@use "./layouts/header";
 
-@mixin button-heart {
-    border:none;
-}
+// MAIN
 
+@use "./pages/accueil";
+@use "./pages/restaurants";
+@use "./components/button-gradient";
+@use "./components/checker";
 
-@mixin margin {
-    width: 90%;
-    margin: auto;
-}
+// FOOTER
 
-@mixin box_shadow {
-    box-shadow: 0px 10px 30px -20px rgba(64, 88, 104, 0.8);
-}
+@use "./layouts/footer";
 
-%flex {
-    display: flex;
-    flex-direction: column;
-}
-
-%titles {
-    margin: 0px;
-    text-align: center;
-}
-
-
-* {
-    box-sizing: border-box;
-}
-
-body{
-    font-family: 'robotoblack';
-    margin: auto;
-    h2, h3, p{
-        @extend %titles;
-    }
-
-    a{
-        color: inherit;
-        text-decoration: none;
-    }
-
-    a:hover, button:hover{
-        cursor: pointer;
-    }
-}
-
-
-header{
-    @extend %flex;
-    align-items: center;
-    box-shadow: 0px 10px 5px -5px rgba(64, 88, 104, 0.8);
-    .logo{
-        padding: 20px 0;
-        img{
-            height: 30px;
-        }
-    }
-}
-
-.top{
-    .location{
-        @extend %flex;
-        padding: 20px;
-        width: 100%;
-        gap: 20px;
-        justify-content: center;
-        flex-direction: row;
-        background-color: $grey;
-    }
-
-    .reserve{
-        @extend %flex;
-        background-color: $lightgrey;
-        gap: 20px;
-        align-items: center;
-        padding: 20px;
-        button{
-            @extend %flex;
-            @include button-config;
-            border: none; 
-            padding: 20px;
-        }
-    }  
-}
-
-.fonction{
-    @extend %flex;
-    @include margin();
-    gap: 20px;
-    padding: 20px 0;
-    margin-top: 20px;
-    .button{
-        @extend %flex;
-        @include button-config2;
-        flex-direction: row;
-        align-items: center;
-        gap: 20px;
-
-        .fas{
-            font-size: 20px;
-            color: #7E7E7E;
-        }
-        
-        &__number{
-            @include button-number;
-        }
-
-        &:hover{
-            background-color: #F5EDFF;
-            .fas{
-                color: $color-primary;
-            }
-        }
-    }
-}
-
-
-#resto{
-    background-color: $lightgrey;
-    padding: 20px 0 50px 0;
-}
-
-.resto{
-
-    @include margin;
-
-
-    &__card{
-        background-color: white;
-        border-radius: 20px;
-        margin-bottom: 20px;
-        @include box_shadow();
-        img{
-            object-fit: cover;
-            border-radius: 20px 20px 0 0;
-            height: 200px;
-            width: 100%;
-        }
-    }
-
-    &__desc{
-        @extend %flex;
-        flex-direction: row;  
-        align-items: center;      
-
-        border-radius: 20px;
-        text-align: left;
-    }
-
-    &__name{
-        h3, p{
-            text-align: left;
-            padding: 2px 6px;
-        }
-        margin: 5px;
-    }
-
-    &__heart{
-        margin-left: auto;
-        padding: 20px;
-    }
-
-
-    input[type="checkbox"] {
-        appearance: none;
-        &:checked + label{
-            .active{
-                background: linear-gradient($color-primary, $color-secondary);
-	            -webkit-background-clip: text;
-	            -webkit-text-fill-color: transparent;
-                display: inline;
-                position: relative;
-                left: 25px;
-            }
-        }
-    }
-      
-    label {
-        color: $grey;
-        cursor: pointer; 
-        transition: color 0.2s ease-in-out;
-        font-size: 20px;
-
-        .active{
-            display: none;
-        }
-
-        &:hover {
-            color: grey;
-        }
-    }
-}
-
-footer{
-    padding: 20px;
-    background-color: $color-footer;
-    
-
-    .footer__link{
-        @extend %flex;
-        flex-direction: row;
-        margin-top: 10px;
-        .fa-handshake{
-            transform: rotate(320deg);
-        }
-    }
-    
-    p{
-        filter: invert(100%); 
-    }
-
-    img{
-        margin: 12px 0;
-        height: 20px;
-        filter: invert(100%);
-    }
-
-    i{
-        filter: invert(100%);
-        width: 20px;
-        padding-right: 25px;
-    }
-}
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
 
