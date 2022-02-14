@@ -1,6 +1,10 @@
 @use '../utils/variables';
 @use '../utils/mixin';
 
+.checker{
+    padding-right: 15px;
+}
+
 .top{
     .location{
         @include mixin.flex;
@@ -22,10 +26,16 @@
 }
 
 .fonction{
-    @include mixin.flex;
     @include mixin.margin();
     @include mixin.padding-main;
     gap: 20px;
+
+    &__button{
+        @include mixin.flex;
+
+        @include mixin.gap(20px,0px);
+        padding: 20px 0;
+    }
 
     .button{
         @include mixin.flex;
@@ -63,9 +73,15 @@
         transition: transform 0.3s;
     } 
 
+    &__div{
+        @include mixin.flex;
+        margin: 30px 0;
+    }
+
     &__card{
         @include mixin.cards-shape;
         @include mixin.box-shadow();
+        flex: 1 50%;
         img{
             object-fit: cover;
             border-radius: 20px 20px 0 0;
@@ -74,7 +90,13 @@
         }
     }
 
-    @include mixin.card-description;
+    &__desc{
+        @include mixin.flex;
+        flex-direction: row;  
+        align-items: center;      
+        @include mixin.border-radius(15px);
+        justify-content: space-between;
+    }
 
     &__name{
         h3, p{
@@ -83,4 +105,30 @@
         }
         margin: 5px;
     }
+}
+
+@media (min-width: 768px) {
+    .resto{
+        &__div{
+        @include mixin.flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 20px;
+        }
+
+        &__card{
+            flex: 45%;
+        }
+    }
+
+    .fonction{
+
+        &__button{
+            @include mixin.flex;
+            flex-direction: row;
+            flex: 33%;
+        }
+    }
+
+    
 }

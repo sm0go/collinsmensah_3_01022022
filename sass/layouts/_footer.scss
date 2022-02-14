@@ -30,3 +30,18 @@ footer{
         padding-right: 25px;
     }
 }
+
+@media (min-width: 768px) {
+    footer{
+        @include mixin.flex;
+         align-items: center;
+         padding: 20px 40px;
+         .footer__div{
+             margin-top: 20px;
+            display: flex;
+            justify-content: space-around;
+            gap: 60px;
+        }
+ 
+     }
+}

@@ -31,7 +31,7 @@
     @include box-shadow();
     flex-direction: row;
     align-items: center;
-    gap: 20px;
+    gap: 15px;
 }
 
 @mixin button-number {
@@ -41,6 +41,7 @@
     padding: 4px 8px ;
     border-radius: 25px;
     color: #FFF; 
+    margin-right: -5px;
 }
 
 @mixin margin {
@@ -56,15 +57,7 @@
     box-shadow: $offsetX $offsetY $blur $spread rgba(64, 88, 104, 0.8);
 }
 
-@mixin card-description {
-    &__desc{
-        @include flex;
-        flex-direction: row;  
-        align-items: center;      
-        border-radius: 20px;
-        justify-content: space-between;
-    }
-}
+
 
 @mixin cards-shape {
     background-color: white;
@@ -81,12 +74,17 @@
 }
 
 @mixin menuTitle {
+
     .menu{
         border-radius: 30px 30px 0 0 ;
         position: relative;
         top: 0px;
         @include animation(top, 1s, ease, none, forwards);
         background-color: variables.$grey;
+        h1{
+            font-family: 'Shrikhand', cursive;
+        }
+
         &__title{
             @include flex;
             flex-direction: row;
@@ -96,6 +94,8 @@
             @include animation(fadeInPlats, 0.5s, ease-in-out, 0.5s, forwards);
         }
     }
+
+
 }
 
 

@@ -1,15 +1,21 @@
 @use '../utils/mixin';
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&family=Shrikhand&display=swap');
 
 * {
     box-sizing: border-box;
 }
 
 body{
-    font-family: 'robotoblack';
+    font-family: 'Roboto', sans-serif;
     margin: auto;
-    h2, h3, p{
+
+    
+    h1, h2, h3, p{
         margin: 0px;
         text-align: center;
+        text-overflow: ellipsis;
+        overflow: hidden; 
+        
     }
 
     a{

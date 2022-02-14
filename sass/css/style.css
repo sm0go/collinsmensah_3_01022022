@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&family=Shrikhand&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 @keyframes checker {
   0% {
@@ -61,12 +62,14 @@
 }
 
 body {
-  font-family: "robotoblack";
+  font-family: "Roboto", sans-serif;
   margin: auto;
 }
-body h2, body h3, body p {
+body h1, body h2, body h3, body p {
   margin: 0px;
   text-align: center;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 body a {
   color: inherit;
@@ -89,9 +92,17 @@ header {
 }
 header .logo {
   padding: 20px 0;
+  box-shadow: 0px 0px 5px 0px rgba(64, 88, 104, 0.8);
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 header .logo img {
   height: 30px;
+}
+
+.checker {
+  padding-right: 15px;
 }
 
 .top .location {
@@ -114,12 +125,17 @@ header .logo img {
 }
 
 .fonction {
-  display: flex;
-  flex-direction: column;
   width: 90%;
   margin: auto;
   padding: 20px 0 30px 0;
   gap: 20px;
+}
+.fonction__button {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 0px;
+  padding: 20px 0;
 }
 .fonction .button {
   display: flex;
@@ -132,7 +148,7 @@ header .logo img {
   box-shadow: 0px 3px 10px -5px rgba(64, 88, 104, 0.8);
   flex-direction: row;
   align-items: center;
-  gap: 20px;
+  gap: 15px;
 }
 .fonction .button .fas {
   font-size: 20px;
@@ -145,6 +161,7 @@ header .logo img {
   padding: 4px 8px;
   border-radius: 25px;
   color: #FFF;
+  margin-right: -5px;
 }
 .fonction .button:hover {
   background-color: #F5EDFF;
@@ -166,11 +183,17 @@ header .logo img {
   transform: scale(1.02);
   transition: transform 0.3s;
 }
+.resto__div {
+  display: flex;
+  flex-direction: column;
+  margin: 30px 0;
+}
 .resto__card {
   background-color: white;
   border-radius: 20px;
   margin-bottom: 20px;
   box-shadow: 0px 3px 10px -5px rgba(64, 88, 104, 0.8);
+  flex: 1 50%;
 }
 .resto__card img {
   object-fit: cover;
@@ -183,7 +206,7 @@ header .logo img {
   flex-direction: column;
   flex-direction: row;
   align-items: center;
-  border-radius: 20px;
+  border-radius: 15px;
   justify-content: space-between;
 }
 .resto__name {
@@ -194,6 +217,66 @@ header .logo img {
   padding: 2px 6px;
 }
 
+@media (min-width: 768px) {
+  .resto__div {
+    display: flex;
+    flex-direction: column;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  .resto__card {
+    flex: 45%;
+  }
+
+  .fonction__button {
+    display: flex;
+    flex-direction: column;
+    flex-direction: row;
+    flex: 33%;
+  }
+}
+footer {
+  padding: 20px;
+  background-color: #353535;
+}
+footer .footer__link {
+  display: flex;
+  flex-direction: column;
+  flex-direction: row;
+  margin-top: 10px;
+}
+footer .footer__link .fa-handshake {
+  transform: rotate(320deg);
+}
+footer p {
+  filter: invert(100%);
+}
+footer img {
+  margin: 12px 0;
+  height: 20px;
+  filter: invert(100%);
+}
+footer i {
+  filter: invert(100%);
+  width: 20px;
+  padding-right: 25px;
+}
+
+@media (min-width: 768px) {
+  footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 40px;
+  }
+  footer .footer__div {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-around;
+    gap: 60px;
+  }
+}
 header {
   display: flex;
   flex-direction: column;
@@ -234,6 +317,10 @@ main .menu {
   animation-fill-mode: forwards;
   background-color: #EAEAEA;
 }
+main .menu h1 {
+  font-family: "Shrikhand", cursive;
+  font-size: 25px;
+}
 main .menu__title {
   display: flex;
   flex-direction: column;
@@ -264,6 +351,7 @@ main .plats {
   border-radius: 20px;
   gap: 20px;
   padding: 20px;
+  margin: auto;
 }
 main .plats h2 {
   text-align: left;
@@ -331,36 +419,70 @@ main .plats .plats-card__desc {
   justify-content: space-between;
   padding: 15px 25px 15px 15px;
   width: 100%;
+  transition: width 0.3s ease-out;
 }
 main .plats .plats-card__desc h3, main .plats .plats-card__desc p {
   text-align: left;
+  font-size: 16px;
 }
 main .plats .plats-card__name {
-  margin-right: auto;
-  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-right: 10px;
 }
 main .plats .plats-card__check {
   display: flex;
   color: white;
   font-size: 25px;
-  margin-right: -150px;
-  width: 80px;
+  margin-right: -25%;
+  flex-basis: 25%;
   justify-content: center;
   align-items: center;
   background-color: #99E2D0;
   transition: margin-right 0.5s ease-out;
+}
+main .plats .plats-card:hover {
+  cursor: pointer;
 }
 main .plats .plats-card:hover .plats-card__check {
   margin-right: 0px;
 }
 main .plats .plats-card:hover .plats-card__check i {
   animation-name: checker;
-  animation-duration: 0.8s;
+  animation-duration: 0.6s;
   animation-timing-function: ease-in-out;
   animation-delay: none;
   animation-fill-mode: forwards;
 }
+main .plats .plats-card:hover .plats-card__desc {
+  width: 75%;
+}
 
+@media (min-width: 768px) {
+  main .plats {
+    display: flex;
+    flex-direction: row;
+    width: 90%;
+  }
+  main .plats article {
+    min-width: 200px;
+    flex: 33%;
+  }
+
+  .menu h1 {
+    width: 100%;
+  }
+  .menu__title .checker {
+    position: relative;
+    bottom: 10px;
+    right: 40px;
+  }
+
+  h2 {
+    width: 100%;
+  }
+}
 .button-gradient {
   display: flex;
   flex-direction: column;
@@ -375,7 +497,7 @@ main .plats .plats-card:hover .plats-card__check i {
 
 .checker {
   margin-left: auto;
-  padding-right: 5px;
+  padding-right: 15px;
 }
 
 input[type=checkbox] {
@@ -400,7 +522,7 @@ label {
   color: black;
   cursor: pointer;
   transition: color 0.2s ease-in-out;
-  font-size: 25px;
+  font-size: 20px;
 }
 label .fa-check-circle {
   color: white;
@@ -413,33 +535,6 @@ label .active {
 }
 label:hover {
   color: #9356DC;
-}
-
-footer {
-  padding: 20px;
-  background-color: #353535;
-}
-footer .footer__link {
-  display: flex;
-  flex-direction: column;
-  flex-direction: row;
-  margin-top: 10px;
-}
-footer .footer__link .fa-handshake {
-  transform: rotate(320deg);
-}
-footer p {
-  filter: invert(100%);
-}
-footer img {
-  margin: 12px 0;
-  height: 20px;
-  filter: invert(100%);
-}
-footer i {
-  filter: invert(100%);
-  width: 20px;
-  padding-right: 25px;
 }
 
 /*# sourceMappingURL=style.css.map */

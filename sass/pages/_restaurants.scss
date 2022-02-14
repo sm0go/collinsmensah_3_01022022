@@ -1,5 +1,6 @@
 @use '../utils/mixin';
 @use '../utils/variables';
+@use '../layouts/footer';
 
 
 header{
@@ -21,7 +22,29 @@ header{
 
 main{
     background: linear-gradient(white 50%, variables.$grey 50%);
-    @include mixin.menuTitle;
+    
+    .menu{
+        border-radius: 30px 30px 0 0 ;
+        position: relative;
+        top: 0px;
+        @include mixin.animation(top, 1s, ease, none, forwards);
+        background-color: variables.$grey;
+        h1{
+            font-family: 'Shrikhand', cursive;
+            font-size: 25px
+        }
+
+        &__title{
+            @include mixin.flex;
+            flex-direction: row;
+            align-items: center;
+            padding: 20px;
+            opacity: 0;
+            @include mixin.animation(fadeInPlats, 0.5s, ease-in-out, 0.5s, forwards);
+        }
+    }
+
+    
 
     .commander{
         @include mixin.flex;
@@ -39,6 +62,8 @@ main{
         @include mixin.flex;
         @include mixin.border-radius(20px);
         @include mixin.gap(20px,20px);
+        margin: auto;
+
         h2{
             text-align: left;
             font-size: 18px;
@@ -71,7 +96,7 @@ main{
             overflow: hidden;
             opacity: 0;
             @include mixin.animation(fadeInBox, 1.3s, ease-in-out, 1s, forwards);
-
+           
             &.deux {
                 @include mixin.animation(fadeInBox, 1.3s, ease-in-out, 1.3s, forwards);
             }
@@ -81,29 +106,34 @@ main{
             }
 
             &__desc{
+                
                 @include mixin.flex;
                 flex-direction: row;
                 align-items: flex-end;
                 justify-content: space-between;
                 padding: 15px 25px 15px 15px;
                 width: 100%;
+                transition: width 0.3s ease-out;
                 h3,p{
                     text-align: left;
+                    font-size: 16px;
                     
                 }
             }
 
             &__name{
-                margin-right: auto;
-                width: 100%;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                padding-right: 10px; 
             }
 
             &__check{
                 display: flex;
                 color: white;
                 font-size: 25px;
-                margin-right: -150px;
-                width: 80px;
+                margin-right: -25%;
+                flex-basis: 25%;
                 justify-content: center;
                 align-items: center;
                 background-color: variables.$color-tertiary;
@@ -113,16 +143,54 @@ main{
 
             
             &:hover{
+                cursor: pointer;
                 .plats-card__check{
                     margin-right: 0px;
                     i {
-                        @include mixin.animation(checker, 0.8s, ease-in-out, none, forwards);  
+                        @include mixin.animation(checker, 0.6s, ease-in-out, none, forwards);  
                     }
-
                 }
-            }    
+
+                .plats-card__desc{
+                    width: 75%;
+                }
+            }  
+            
+            
         }
         
     }
 }
 
+@media (min-width: 768px) {
+    main{
+        .plats{
+            display: flex;
+            flex-direction: row;
+            width: 90%;
+            article{
+                min-width: 200px;
+                flex: 33%;
+            }
+        }
+    }
+
+    .menu{
+        h1{
+            width: 100%;
+        }
+
+        &__title{
+            .checker{
+                position: relative;
+                bottom: 10px;
+                right: 40px;
+            }
+        }
+    }
+
+    h2{
+        width: 100%;
+    }
+    
+}
