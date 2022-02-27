@@ -168,9 +168,11 @@ main{
             display: flex;
             flex-direction: row;
             width: 90%;
+            flex-wrap: wrap;
             article{
                 min-width: 200px;
                 flex: 33%;
+                max-width: 49%;
             }
         }
     }

@@ -7,7 +7,10 @@
 
 
 input[type="checkbox"] {
+
     appearance: none;
+
+    
 
     &:checked + label{
         
@@ -40,16 +43,30 @@ label {
         color: white;
     }
 
-    .activer{
-        display: none;
-    }
-
     .active{
         display: none;
     }
 
-    &:hover {
-        color: variables.$color-primary;
+    .none{
+        
+
+    }
+
+    &:hover{
+
+        .active{
+            display: inline;
+            background: linear-gradient(variables.$color-primary, variables.$color-secondary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            transition: display 0.5s;
+            
+        }
+
+        .none{
+            display: none;
+            transition: display 0.5s;
+        }
     }
 }
 
