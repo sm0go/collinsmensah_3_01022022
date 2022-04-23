@@ -5,23 +5,22 @@
     padding-right: 15px;
 }
 
-.loader{
-    background: variables.$color-primary;
+.loader {
+    background: #9356DC;
     width: 100%;
     height: 100%;
     position: fixed;
-    top: 0;
-    left: 0;
     opacity: 0.5;
+    z-index: 1; 
+    animation: section-loader 0.1s 2s both;
 }
+  
 
 .lds-facebook {
     display: inline-block;
-    position: fixed;
-    left: 0px;
-    top: 0px;
-    width: 100%;
-    height: 100%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
   }
   .lds-facebook div {
     display: inline-block;
@@ -53,6 +52,19 @@
       height: 32px;
     }
   }
+  @keyframes section-loader {
+    from {
+        opacity: 0.5;
+        position: fixed;
+        z-index: 1; 
+    }
+  
+    to {
+        opacity: 0;
+        position: none;
+        z-index: none;
+    }
+}
 
 .top{
     .location{
