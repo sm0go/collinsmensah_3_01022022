@@ -28,9 +28,9 @@ body{
 }
 
 main, .top{
-    a:hover, button:hover{
+    a:hover{
         transform: scale(1.02);
         transition: transform 0.3s ;
-    } 
+    }
 }
 
