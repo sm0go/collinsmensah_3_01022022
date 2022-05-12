@@ -106,10 +106,10 @@ header .logo img {
 }
 
 .loader {
-  background: #9356DC;
+  background: #353535;
   width: 100%;
   height: 100%;
-  opacity: 0.7;
+  opacity: 0.5;
   animation: section-loader 0.1s 2s both;
 }
 
@@ -575,7 +575,7 @@ main .plats .plats-card:hover .plats-card__desc {
 }
 .button-gradient:hover {
   filter: brightness(1.3);
-  box-shadow: 0px 10px 20px -8px rgba(64, 88, 104, 0.8);
+  box-shadow: 0px 5px 15px 0px rgba(64, 88, 104, 0.8);
   -webkit-transition: all 0.5s ease;
 }
 
