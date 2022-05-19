@@ -6,60 +6,105 @@
 }
 
 
-input[type="checkbox"] {
+// input[type="checkbox"] {
 
-    appearance: none;
+//     appearance: none;
 
-    &:checked + label{
+//     &:checked + label{
         
-        .fa-check-circle{
-            color: white;
-            display: inline;
-        }
+//         .fa-check-circle{
+//             color: white;
+//             display: inline;
+//         }
         
-        .active{
-            background: linear-gradient(variables.$color-primary, variables.$color-secondary);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            display: inline;
-            transition: all 1s; 
-        }
+//         .active{
+//             background: linear-gradient(variables.$color-primary, variables.$color-secondary);
+//             -webkit-background-clip: text;
+//             -webkit-text-fill-color: transparent;
+//             display: inline;
+//             transition: all 1s; 
+//         }
 
-        .none{
-            display: none;
-        }
+//         .none{
+//             display: none;
+//         }
         
-    }
-}
+//     }
+// }
   
-label {
-    color: black;
-    cursor: pointer; 
-    transition: color 0.2s ease-in-out;
-    font-size: 20px;
-    .fa-check-circle{
-        color: white;
+// label {
+//     color: black;
+//     cursor: pointer; 
+//     transition: color 0.2s ease-in-out;
+//     font-size: 20px;
+//     .fa-check-circle{
+//         color: white;
+//     }
+
+//     .active{
+//         display: none;
+//     }
+
+//     &:hover{
+
+//         .active{
+//             display: inline;
+//             background: linear-gradient(variables.$color-primary, variables.$color-secondary);
+//             -webkit-background-clip: text;
+//             -webkit-text-fill-color: transparent;
+//             transition: display 0.5s;
+            
+//         }
+
+//         .none{
+//             display: none;
+//             transition: display 0.5s;
+//         }
+//     }
+// }
+
+button{
+    background: none;
+    border: none;
+}
+
+.checker_coeur{
+    .active{
+        visibility: hidden;
+        font-size: 20px;
+        background: linear-gradient(variables.$color-primary, variables.$color-secondary);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        margin-right: -24px;
+        opacity: 0;
+        transition: visibility 0.4s, opacity 0.4s linear;
     }
 
-    .active{
-        display: none;
+    .none{
+        font-size: 20px;
+        color: black;
+        visibility: visible;
+        opacity: 1;
+        transition: visibility 0.2s, opacity 0.2s linear;
     }
 
     &:hover{
 
         .active{
-            display: inline;
             background: linear-gradient(variables.$color-primary, variables.$color-secondary);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            transition: display 0.5s;
-            
+            opacity: 1;
+            visibility: visible;
         }
-
+    
         .none{
-            display: none;
-            transition: display 0.5s;
+            opacity: 0;
+            visibility: hidden;
+
         }
+    
     }
 }
+
 
