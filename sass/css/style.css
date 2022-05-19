@@ -329,7 +329,6 @@ main .menu {
   animation-name: top;
   animation-duration: 1s;
   animation-timing-function: ease;
-  animation-delay: 0;
   animation-fill-mode: forwards;
   background-color: #EAEAEA;
 }
@@ -468,7 +467,6 @@ main .plats .plats-card:hover .plats-card__check i {
   animation-name: checker;
   animation-duration: 0.6s;
   animation-timing-function: ease-in-out;
-  animation-delay: none;
   animation-fill-mode: forwards;
 }
 main .plats .plats-card:hover .plats-card__desc {
