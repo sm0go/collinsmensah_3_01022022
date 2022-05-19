@@ -57,6 +57,14 @@
     transform: scale(1.02);
   }
 }
+@keyframes checker {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 * {
   box-sizing: border-box;
 }
@@ -582,10 +590,6 @@ main .plats .plats-card:hover .plats-card__desc {
 input[type=checkbox] {
   appearance: none;
 }
-input[type=checkbox]:checked + label .fa-check-circle {
-  color: white;
-  display: inline;
-}
 input[type=checkbox]:checked + label .active {
   background: linear-gradient(#9356DC, #FF79DA);
   -webkit-background-clip: text;
@@ -598,27 +602,56 @@ input[type=checkbox]:checked + label .none {
 }
 
 label {
-  color: black;
+  color: blue;
   cursor: pointer;
   transition: color 0.2s ease-in-out;
   font-size: 20px;
 }
-label .fa-check-circle {
-  color: white;
-}
 label .active {
   display: none;
+  transition: 0.5;
 }
 label:hover .active {
   display: inline;
-  background: linear-gradient(#9356DC, #FF79DA);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  transition: display 0.5s;
+  color: red;
+  transition: color 1s;
 }
 label:hover .none {
   display: none;
-  transition: display 0.5s;
+}
+
+button {
+  background: none;
+  border: none;
+}
+
+.checker3 .active {
+  visibility: hidden;
+  font-size: 20px;
+  background: linear-gradient(#9356DC, #FF79DA);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-right: -24px;
+  opacity: 0;
+  transition: visibility 0.4s, opacity 0.4s linear;
+}
+.checker3 .none {
+  font-size: 20px;
+  color: black;
+  visibility: visible;
+  opacity: 1;
+  transition: visibility 0.2s, opacity 0.2s linear;
+}
+.checker3:hover .active {
+  background: linear-gradient(#9356DC, #FF79DA);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  opacity: 1;
+  visibility: visible;
+}
+.checker3:hover .none {
+  opacity: 0;
+  visibility: hidden;
 }
 
 /*# sourceMappingURL=style.css.map */

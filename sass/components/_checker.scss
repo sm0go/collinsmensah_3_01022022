@@ -1,4 +1,6 @@
 @use '../utils/variables';
+@use '../utils/mixin';
+@use '../utils/animations';
 
 .checker{
     margin-left: auto;
@@ -12,10 +14,10 @@ input[type="checkbox"] {
 
     &:checked + label{
         
-        .fa-check-circle{
-            color: white;
-            display: inline;
-        }
+        // .fa-check-circle{
+        //     color: yellow;
+        //     display: inline;
+        // }
         
         .active{
             background: linear-gradient(variables.$color-primary, variables.$color-secondary);
@@ -33,31 +35,82 @@ input[type="checkbox"] {
 }
   
 label {
-    color: black;
+    color: blue;
     cursor: pointer; 
     transition: color 0.2s ease-in-out;
     font-size: 20px;
-    .fa-check-circle{
-        color: white;
-    }
+
+    // .fa-check-circle{
+    //     color: white;
+    // }
 
     .active{
         display: none;
+        transition: 0.5;
     }
 
     &:hover{
+        
         .active{
+            
             display: inline;
-            background: linear-gradient(variables.$color-primary, variables.$color-secondary);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            transition: display 0.5s;    
+            color: red;
+
+            // background: linear-gradient(variables.$color-primary, variables.$color-secondary);
+            // -webkit-background-clip: text;
+            // -webkit-text-fill-color: transparent;
+            transition: color 1s;
+            
         }
 
         .none{
             display: none;
-            transition: display 0.5s;
+            // transition: all 0.3s;
         }
+    }
+}
+
+button{
+    background: none;
+    border: none;
+}
+
+.checker3{
+    .active{
+        visibility: hidden;
+        font-size: 20px;
+        background: linear-gradient(variables.$color-primary, variables.$color-secondary);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        margin-right: -24px;
+        opacity: 0;
+        transition: visibility 0.4s, opacity 0.4s linear;
+    }
+
+    .none{
+        font-size: 20px;
+        color: black;
+        visibility: visible;
+        opacity: 1;
+        transition: visibility 0.2s, opacity 0.2s linear;
+    }
+
+    &:hover{
+
+        .active{
+            background: linear-gradient(variables.$color-primary, variables.$color-secondary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            opacity: 1;
+            visibility: visible;
+        }
+    
+        .none{
+            opacity: 0;
+            visibility: hidden;
+
+        }
+    
     }
 }
 
