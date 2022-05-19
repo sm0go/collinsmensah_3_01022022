@@ -10,8 +10,6 @@ input[type="checkbox"] {
 
     appearance: none;
 
-    
-
     &:checked + label{
         
         .fa-check-circle{
@@ -45,11 +43,6 @@ label {
 
     .active{
         display: none;
-    }
-
-    .none{
-        
-
     }
 
     &:hover{
