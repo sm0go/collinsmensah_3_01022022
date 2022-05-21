@@ -2,7 +2,6 @@
 @use '../utils/mixin';
 
 .button-gradient{
-    @include mixin.flex;
     background: linear-gradient(variables.$color-secondary, variables.$color-primary);
     border-radius: 25px;
     color: white;

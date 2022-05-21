@@ -107,6 +107,7 @@ header .logo img {
   height: 100%;
   animation: opacity 3s;
   z-index: 1;
+  position: relative;
   opacity: 0;
 }
 .loader .spin {
@@ -537,8 +538,6 @@ main .plats .plats-card:hover .plats-card__desc {
   }
 }
 .button-gradient {
-  display: flex;
-  flex-direction: column;
   background: linear-gradient(#FF79DA, #9356DC);
   border-radius: 25px;
   color: white;
