@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&family=Shrikhand&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&family=Shrikhand&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 @keyframes checker {
   0% {
@@ -538,6 +539,7 @@ main .plats .plats-card:hover .plats-card__desc {
   }
 }
 .button-gradient {
+  font-family: "Roboto", sans-serif;
   background: linear-gradient(#FF79DA, #9356DC);
   border-radius: 25px;
   color: white;
