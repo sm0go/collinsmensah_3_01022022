@@ -3,7 +3,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&family=Shrikhand&display=swap');
 
 .button-gradient{
-    font-family: 'Roboto', sans-serif;
+    font-family: sans-serif;
     background: linear-gradient(variables.$color-secondary, variables.$color-primary);
     border-radius: 25px;
     color: white;
