@@ -539,7 +539,7 @@ main .plats .plats-card:hover .plats-card__desc {
   }
 }
 .button-gradient {
-  font-family: sans-serif;
+  font-family: "Roboto", ans-serif;
   background: linear-gradient(#FF79DA, #9356DC);
   border-radius: 25px;
   color: white;
